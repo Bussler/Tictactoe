@@ -33,11 +33,11 @@ public class TextbasedInteractivePlayer implements Player {
 
 	private String getuserinput() {
 		// Eingabe Konsole, it's your turn! <|=)
-		try (final Scanner turnin = new Scanner(System.in)) {
-			final String turn = turnin.nextLine();
-			System.out.println(getSymbol() + " ,your turn was " + turn + "!");
-			return turn;
-		}
+		final Scanner turnin = new Scanner(System.in);
+		final String turn = turnin.nextLine();
+		System.out.println(getSymbol() + " ,your turn was " + turn + "!");
+		return turn;
+
 	}
 
 	private Pair parse(String userinput) {
@@ -78,7 +78,6 @@ public class TextbasedInteractivePlayer implements Player {
 			}
 
 			System.out.println(abc(y)); // Abc variabel an size anpassen >=(
-			System.out.println("");
 		}
 		System.out.println(line);
 	}
@@ -103,6 +102,11 @@ public class TextbasedInteractivePlayer implements Player {
 		final String buchstabe = "";
 
 		return buchstabe;
+	}
+
+	@Override
+	public String toString() {
+		return "Spieler" + toString(playersymbol);
 	}
 
 }

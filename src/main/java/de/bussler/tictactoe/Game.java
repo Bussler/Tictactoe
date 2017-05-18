@@ -91,8 +91,9 @@ public class Game {
 	private boolean findWinningPattern(Symbol s) {
 		// rows
 		for (int i = 0; i < board.getSize(); i++) {
+			int num = 0;
 			for (int j = 0; j < board.getSize(); j++) {
-				int num = 0;
+
 				if (s.equals(board.get(i, j))) {
 					num++;
 				}
@@ -100,9 +101,43 @@ public class Game {
 					return true;
 			}
 		}
-		return false;
+
 		// cols
+		for (int k = 0; k < board.getSize(); k++) {
+			int num = 0;
+			for (int l = 0; l < board.getSize(); l++) {
+
+				if (s.equals(board.get(l, k))) {
+					num++;
+				}
+				if (num == board.getSize())
+					return true;
+			}
+		}
 
 		// diagonals
+
+		int num2 = 0;
+		for (int x = 0; x < board.getSize(); x++) {
+
+			if (s.equals(board.get(x, x))) {
+				num2++;
+			}
+			if (num2 == board.getSize())
+				return true;
+
+		}
+
+		int num3 = 0;
+		for (int x = 0; x < board.getSize(); x++) {
+
+			if (s.equals(board.get(x, board.getSize() - 1 - x))) {
+				num3++;
+			}
+			if (num3 == board.getSize())
+				return true;
+		}
+
+		return false;
 	}
 }
