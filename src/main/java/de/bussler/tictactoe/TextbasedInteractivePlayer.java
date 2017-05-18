@@ -66,9 +66,11 @@ public class TextbasedInteractivePlayer implements Player {
 	}
 
 	void paint(Board board) {
-		final String line = "+---+---+---+";
+		System.out.println(abc(board.getSize()));
+		final String line = " +---+---+---+";
 		for (int y = 0; y < board.getSize(); y++) {
 			System.out.println(line);
+			System.out.print(numbers(y));
 			System.out.print("|");
 
 			for (int x = 0; x < board.getSize(); x++) {
@@ -77,9 +79,11 @@ public class TextbasedInteractivePlayer implements Player {
 				System.out.print("|");
 			}
 
-			System.out.println(abc(y)); // Abc variabel an size anpassen >=(
+			System.out.println(numbers(y)); // numbers variabel an size anpassen
+											// >=(
 		}
 		System.out.println(line);
+		System.out.println(abc(board.getSize()));
 	}
 
 	private static String toString(Symbol symbol) {
@@ -98,10 +102,14 @@ public class TextbasedInteractivePlayer implements Player {
 
 	}
 
-	public String abc(int y) { // To do: immer noch anpassen an size >=(
-		final String buchstabe = "";
+	public String abc(int size) { // To do: immer noch anpassen an size >=(
+		final String buchstabe = "   A   B   C  ";
 
 		return buchstabe;
+	}
+
+	public String numbers(int y) {
+		return Integer.toString(y + 1);
 	}
 
 	@Override
