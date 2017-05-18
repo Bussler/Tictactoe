@@ -32,11 +32,12 @@ public class TextbasedInteractivePlayer implements Player {
 	}
 
 	private String getuserinput() {
-		String turn; // Eingabe Konsole, it's your turn! <|=)
-		final Scanner turnin = new Scanner(System.in);
-		turn = turnin.nextLine();
-		System.out.println(getSymbol() + " ,your turn was " + turn + "!");
-		return turn;
+		// Eingabe Konsole, it's your turn! <|=)
+		try (final Scanner turnin = new Scanner(System.in)) {
+			final String turn = turnin.nextLine();
+			System.out.println(getSymbol() + " ,your turn was " + turn + "!");
+			return turn;
+		}
 	}
 
 	private Pair parse(String userinput) {
