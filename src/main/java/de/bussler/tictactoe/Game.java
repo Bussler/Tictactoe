@@ -33,7 +33,7 @@ public class Game {
 			final Player gplayer = getWinner();
 
 			if (gplayer != null) {
-				System.out.println(gplayer + " hat gewonnen!");
+				System.out.println(gplayer.getSymbol() + " hat gewonnen!"); // Änderung1
 				return;
 			}
 			if (currentplayer < players.length - 1) {

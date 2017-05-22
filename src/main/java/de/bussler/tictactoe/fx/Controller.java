@@ -8,7 +8,6 @@ import de.bussler.tictactoe.ComputerPlayer;
 import de.bussler.tictactoe.Game;
 import de.bussler.tictactoe.Pair;
 import de.bussler.tictactoe.Player;
-import de.bussler.tictactoe.Board.Symbol;
 import javafx.application.Platform;
 import javafx.event.EventType;
 import javafx.fxml.FXML;
@@ -49,7 +48,7 @@ public class Controller extends Board implements Initializable {
 	}
 
 	private void clicked(int y, int x) {
-
+		input.setText("Button " + y + " " + x + " wurde geklickt");
 		System.out.println("Button " + y + " " + x + " wurde geklickt");
 		synchronized (this) {
 
@@ -66,7 +65,7 @@ public class Controller extends Board implements Initializable {
 			try {
 				wait();
 			} catch (final InterruptedException e) {
-				// TODO Auto-generated catch block
+
 				e.printStackTrace();
 			}
 		} while (lastInput == null);
@@ -76,11 +75,13 @@ public class Controller extends Board implements Initializable {
 
 	public void playGame(Controller controller) {
 		System.out.println("playGame(); funktioniert");
+		input.setText("playGame(); funktioniert!"); // Änderung2
 
 		final Player player1 = new FxPlayer(Symbol.Cross, controller);
 		final Player player2 = new ComputerPlayer(Symbol.Circle);
 		new Game(this, player1, player2).play();
 		System.out.println("Ende");
+		input.setText("Ende"); // Änderung2
 	}
 
 	@Override
