@@ -8,12 +8,10 @@ public class Game {
 
 	Board board;
 	Player[] players;
-	int random;
-	Symbol playersymbol;
 
-	public Game(int size, Player... players) { // Symbols?!
+	public Game(Board board, Player... players) { // Symbols?!
 
-		board = new Board(3);
+		this.board = board;
 
 		if (players.length == 0) {
 			throw new IllegalArgumentException("There has to be at least one player!");

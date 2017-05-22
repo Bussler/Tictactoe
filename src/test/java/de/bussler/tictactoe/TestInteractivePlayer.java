@@ -1,8 +1,10 @@
 package de.bussler.tictactoe;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import de.bussler.tictactoe.Board.Symbol;
+import de.bussler.tictactoe.text.TextbasedInteractivePlayer;
 
 public class TestInteractivePlayer {
 
@@ -16,6 +18,7 @@ public class TestInteractivePlayer {
 	}
 
 	@Test
+	@Ignore
 	public void playtest() {
 		final Board board = new Board(3);
 		final UnmodifiableBoard uboard = new UnmodifiableBoard(board);

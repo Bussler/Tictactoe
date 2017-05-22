@@ -1,7 +1,11 @@
-package de.bussler.tictactoe;
+package de.bussler.tictactoe.text;
 
 import java.util.Scanner;
 
+import de.bussler.tictactoe.Board;
+import de.bussler.tictactoe.Pair;
+import de.bussler.tictactoe.Player;
+import de.bussler.tictactoe.UnmodifiableBoard;
 import de.bussler.tictactoe.Board.Symbol;
 
 public class TextbasedInteractivePlayer implements Player {
@@ -33,7 +37,7 @@ public class TextbasedInteractivePlayer implements Player {
 
 	private String getuserinput() {
 		// Eingabe Konsole, it's your turn! <|=)
-		final Scanner turnin = new Scanner(System.in);
+		final Scanner turnin = new Scanner(System.in, "UTF-8");
 		final String turn = turnin.nextLine();
 		System.out.println(getSymbol() + " ,your turn was " + turn + "!");
 		return turn;
