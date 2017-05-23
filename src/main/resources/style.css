@@ -5,20 +5,22 @@
 
 .buttonEmpty
 {	-fx-text-fill: white;
-    -fx-background-color: #474747;
+    -fx-background-color: #FAFAD2;
     -fx-padding: 5;
+    -fx-border-color:  	#A52A2A;
+    -fx-border-width: 5;
+    -fx-border-style: solid
 
 	
 }
 .buttonCross{
     -fx-background-image: url('cross.png');
-    -fx-background-color: #474747;
+    -fx-background-repeat: no-repeat;
     -fx-background-position: center center;
-    -fx-padding: 5;
+    
 }
 .buttonCircle{
 	-fx-background-image: url('circle.png');
-    -fx-background-color: #474747;
+	 -fx-background-repeat: no-repeat;
     -fx-background-position: center center;
-    -fx-padding: 5;
 }
