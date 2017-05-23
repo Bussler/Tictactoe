@@ -3,10 +3,10 @@ package de.bussler.tictactoe.text;
 import java.util.Scanner;
 
 import de.bussler.tictactoe.Board;
+import de.bussler.tictactoe.Board.Symbol;
 import de.bussler.tictactoe.Pair;
 import de.bussler.tictactoe.Player;
 import de.bussler.tictactoe.UnmodifiableBoard;
-import de.bussler.tictactoe.Board.Symbol;
 
 public class TextbasedInteractivePlayer implements Player {
 
@@ -69,7 +69,7 @@ public class TextbasedInteractivePlayer implements Player {
 		return playersymbol;
 	}
 
-	void paint(Board board) {
+	public void paint(Board board) {
 		System.out.println(abc(board.getSize()));
 		final String line = " +---+---+---+";
 		for (int y = 0; y < board.getSize(); y++) {

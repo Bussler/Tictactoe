@@ -1,5 +1,7 @@
 package de.bussler.tictactoe.fx;
 
+import java.net.URL;
+
 import de.bussler.tictactoe.text.Main;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -23,6 +25,8 @@ public class MainFx extends Application {
 		final Parent rootLayout = loader.load();
 		MainFx.controller = loader.getController();
 		final Scene scene = new Scene(rootLayout);
+		final URL url = MainFx.class.getResource("/style.css");
+		scene.getStylesheets().add(url.toExternalForm());
 		stage.setScene(scene);
 
 		stage.show();

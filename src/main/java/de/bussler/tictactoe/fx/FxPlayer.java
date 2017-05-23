@@ -1,10 +1,9 @@
 package de.bussler.tictactoe.fx;
 
-import de.bussler.tictactoe.Board;
+import de.bussler.tictactoe.Board.Symbol;
 import de.bussler.tictactoe.Pair;
 import de.bussler.tictactoe.Player;
 import de.bussler.tictactoe.UnmodifiableBoard;
-import de.bussler.tictactoe.Board.Symbol;
 
 public class FxPlayer implements Player {
 
@@ -19,7 +18,7 @@ public class FxPlayer implements Player {
 	@Override
 	public synchronized Pair play(UnmodifiableBoard board) {
 
-		return playercontroller.getInput();
+		return playercontroller.getInput(playersymbol);
 	}
 
 	@Override

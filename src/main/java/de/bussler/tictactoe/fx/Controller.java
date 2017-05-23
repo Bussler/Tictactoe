@@ -4,7 +4,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import de.bussler.tictactoe.Board;
-import de.bussler.tictactoe.ComputerPlayer;
 import de.bussler.tictactoe.Game;
 import de.bussler.tictactoe.Pair;
 import de.bussler.tictactoe.Player;
@@ -38,6 +37,8 @@ public class Controller extends Board implements Initializable {
 				final EventType<?> type = null; // Möglicher Fehler
 				final int y1 = y;
 				final int x1 = x;
+				buttonArray[y][x].setPrefSize(200, 200);
+				buttonArray[y][x].getStyleClass().add("buttonEmpty");
 				buttonArray[y][x].setOnMouseClicked(e -> clicked(y1, x1));
 				grid.add(buttonArray[y][x], y, x);
 			}
@@ -48,8 +49,9 @@ public class Controller extends Board implements Initializable {
 	}
 
 	private void clicked(int y, int x) {
-		input.setText("Button " + y + " " + x + " wurde geklickt");
+
 		System.out.println("Button " + y + " " + x + " wurde geklickt");
+		input.setText("Button " + y + " " + x + " wurde geklickt");
 		synchronized (this) {
 
 			lastInput = new Pair(y, x);
@@ -58,8 +60,9 @@ public class Controller extends Board implements Initializable {
 
 	}
 
-	public synchronized Pair getInput() {
-		input.setAccessibleText("It's your turn");
+	public synchronized Pair getInput(Symbol symbol) {
+		input.setText(symbol + " It's your turn");
+
 		lastInput = null;
 		do {
 			try {
@@ -74,19 +77,28 @@ public class Controller extends Board implements Initializable {
 	}
 
 	public void playGame(Controller controller) {
-		System.out.println("playGame(); funktioniert");
+		// System.out.println("playGame(); funktioniert");
 		input.setText("playGame(); funktioniert!"); // Änderung2
 
 		final Player player1 = new FxPlayer(Symbol.Cross, controller);
-		final Player player2 = new ComputerPlayer(Symbol.Circle);
+		final Player player2 = new FxPlayer(Symbol.Circle, controller);
 		new Game(this, player1, player2).play();
 		System.out.println("Ende");
 		input.setText("Ende"); // Änderung2
 	}
 
 	@Override
-	public void set(int x, int y, Symbol value) {
+	public void set(int x, int y, Symbol value) { // Änderung: Style soll beim
+													// clicken eines buttons
+													// geändert werden
 		super.set(x, y, value);
-		Platform.runLater(() -> buttonArray[x][y].setText(value.toString()));
+
+		// Platform.runLater(() -> buttonArray[x][y].setText(value.toString()));
+
+		if (value.toString().equals("Cross")) {
+			Platform.runLater(() -> buttonArray[x][y].getStyleClass().add("buttonCross"));
+		} else {
+			Platform.runLater(() -> buttonArray[x][y].getStyleClass().add("buttonCircle"));
+		}
 	}
 }

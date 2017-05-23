@@ -7,7 +7,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.bussler.tictactoe.fx.Controller">
    <center>
-      <GridPane fx:id="grid" alignment="CENTER" maxHeight="2000.0" maxWidth="2400.0" prefHeight="10.0" prefWidth="10.0" style="-fx-background-color: darkred; -fx-border-color: orange       ; -fx-border-width: 5;" BorderPane.alignment="CENTER">
+      <GridPane fx:id="grid" alignment="CENTER" maxHeight="2000.0" maxWidth="2400.0" prefHeight="10.0" prefWidth="10.0" BorderPane.alignment="CENTER">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="10.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="10.0" />
@@ -23,7 +23,7 @@
       </GridPane>
    </center>
    <bottom>
-      <TextField fx:id="input" opacity="0.0" prefHeight="14.0" prefWidth="640.0" BorderPane.alignment="CENTER" />
+      <TextField fx:id="input" opacity="100" prefHeight="14.0" prefWidth="640.0" BorderPane.alignment="CENTER" />
    </bottom>
 </BorderPane>
 
