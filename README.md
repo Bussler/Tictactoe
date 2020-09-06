@@ -1,2 +1,2 @@
 # Tictactoe
-Simple Implementation of the Tictactoe game with a GUI support
+Simple implementation of the Tictactoe game with a GUI support
